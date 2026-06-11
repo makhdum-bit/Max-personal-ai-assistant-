@@ -1,0 +1,10 @@
+{
+  "name": "Max Personal AI Assistant",
+  "description": "An advanced, hyper-intelligent personal AI assistant inspired by Jarvis from Iron Man, with web intelligence and voice capability.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

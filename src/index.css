@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-hud-gold: #e2b714;
+  --color-hud-cyan: #06b6d4;
+  --color-hud-neon: #00f0ff;
+  --color-hud-dark: #00020a;
+  --color-hud-slate: #0d1527;
+}
+
+@layer utilities {
+  /* Holographic pulse and scanning aesthetics */
+  .glow-cyan {
+    text-shadow: 0 0 8px rgba(6, 182, 212, 0.6), 0 0 15px rgba(6, 182, 212, 0.4);
+  }
+  .glow-red {
+    text-shadow: 0 0 8px rgba(239, 68, 68, 0.6), 0 0 15px rgba(239, 68, 68, 0.4);
+  }
+  .border-cyan-glow {
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.25), inset 0 0 10px rgba(6, 182, 212, 0.15);
+  }
+  
+  /* Sci-fi scanline effect */
+  .scanlines {
+    background: linear-gradient(
+      rgba(18, 16, 16, 0) 50%, 
+      rgba(0, 0, 0, 0.12) 50%
+    );
+    background-size: 100% 4px;
+  }
+  
+  /* Cyber HUD scrollbar */
+  .hud-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  .hud-scrollbar::-webkit-scrollbar-track {
+    background: rgba(13, 21, 39, 0.5);
+    border-radius: 2px;
+  }
+  .hud-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(6, 182, 212, 0.5);
+    border-radius: 2px;
+  }
+  .hud-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(6, 182, 212, 0.8);
+  }
+}
+
+/* Base resets & styles */
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-hud-dark);
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+
+/* Keyframes for rotation */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+.animate-spin-reverse {
+  animation: spin-reverse 15s linear infinite;
+}
+
+/* Dialogue Markdown Rendering styling */
+.dialogue-markdown p {
+  margin-bottom: 0.75rem;
+}
+.dialogue-markdown p:last-child {
+  margin-bottom: 0;
+}
+.dialogue-markdown ul, .dialogue-markdown ol {
+  margin-left: 1.25rem;
+  margin-bottom: 0.75rem;
+  list-style-type: disc;
+}
+.dialogue-markdown li {
+  margin-bottom: 0.25rem;
+}
+.dialogue-markdown strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+.dialogue-markdown pre {
+  background: #020617;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  margin: 0.75rem 0;
+}
+.dialogue-markdown code {
+  font-family: var(--font-mono);
+  background: rgba(6, 182, 212, 0.1);
+  color: #22d3ee;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.85em;
+}
+.dialogue-markdown h1, .dialogue-markdown h2, .dialogue-markdown h3 {
+  color: #ffffff;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem 0;
+}
